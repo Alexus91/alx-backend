@@ -1,5 +1,9 @@
-from base_caching import BaseCaching
+#!/usr/bin/python3
+""" 4. MRU Caching
+"""
 from datetime import datetime
+from collections import defaultdict
+BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LFUCache(BaseCaching):
