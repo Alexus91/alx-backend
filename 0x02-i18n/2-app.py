@@ -22,8 +22,7 @@ def get_locale():
     """
     language match based on supported languages
     """
-    language_available = app.config['LANGUAGES']
-    return request.accept_languages.best_match(language_available)
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 @app.route("/")
 def index():
