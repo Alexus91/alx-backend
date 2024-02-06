@@ -22,12 +22,14 @@ app = Flask(__name__)
 app.config.from_object(Config)
 babel = Babel(app)
 
+
 def get_user():
     """ Get user from user_id """
     id = request.args.get('login_as', None)
     if id is not None and int(id) in users.keys():
         return users.get(int(id))
     return None
+
 
 @app.before_request
 def before_request():
@@ -49,7 +51,7 @@ def get_locale():
 @app.route('/', strict_slashes=False)
 def index() -> str:
     """Handles / route"""
-    return render_template('4-index.html')
+    return render_template('5-index.html')
 
 
 if __name__ == "__main__":
