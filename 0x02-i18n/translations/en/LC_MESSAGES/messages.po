@@ -25,3 +25,8 @@ msgstr "Welcome to Holberton"
 #: templates/3-index.html:9 templates/4-index.html:9 templates/5-index.html:9
 msgid "home_header"
 msgstr "Hello world!"
+
+
+#: templates/5-index.html:11
+msgid "logged_in_as"
+msgstr "You are logged in as %(username)s."

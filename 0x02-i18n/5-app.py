@@ -34,8 +34,8 @@ def get_user():
 @app.before_request
 def before_request():
     """Set user in global g"""
-    user_id = get_user()
-    g.user_id = user_id
+    user = get_user()
+    g.user = user
 
 
 @babel.localeselector
