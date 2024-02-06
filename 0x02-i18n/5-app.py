@@ -33,7 +33,6 @@ def get_user() -> Union[Dict, None]:
     return None
 
 
-
 @app.before_request
 def before_request():
     """Set user in global g"""
