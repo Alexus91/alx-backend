@@ -27,21 +27,25 @@ users = {
 
 
 @app.route("/")
-def index_5() -> str:
+def index_6()-> str:
     """The index function displays the home pagen """
-    return render_template("5-index.html")
+    return render_template("6-index.html")
 
 
 @babel.localeselector
 def get_locale() -> str:
     """ Determines the best match for the client  """
+
     locale = request.args.get('locale')
     supported_languages = app.config["LANGUAGES"]
     if locale and locale in supported_languages:
         return locale
-    else:
-        best_match = request.accept_languages.best_match(supported_languages)
-        return best_match
+    if g.user and g.user['locale'] in app.config["LANGUAGES"]:
+        return g.user['locale']
+    header_locale = request.headers.get('locale', '')
+    if header_locale in app.config["LANGUAGES"]:
+        return header_locale
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
 def get_user() -> Union[Dict, None]:
@@ -58,8 +62,8 @@ def before_request() -> None:
     user = get_user()
     g.user = user
 
-
 app.before_request(before_request)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
