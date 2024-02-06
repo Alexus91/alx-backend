@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """flask app"""
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_babel import Babel
 
 app = Flask(__name__)
@@ -26,9 +26,9 @@ def get_locale():
     return request.accept_languages.best_match(language_available)
 
 @app.route("/")
-def index_1() -> str:
+def index():
     """ route """
-    return render_template("1-index.html")
+    return render_template("2-index.html")
 
 
 if __name__ == "__main__":
