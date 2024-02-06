@@ -2,6 +2,8 @@
 """ Flask webapp """
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
+from typing import Dict, Union
+
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
@@ -23,12 +25,13 @@ app.config.from_object(Config)
 babel = Babel(app)
 
 
-def get_user():
+def get_user() -> Union[Dict, None]:
     """ Get user from user_id """
-    id = request.args.get('login_as', None)
-    if id is not None and int(id) in users.keys():
-        return users.get(int(id))
+    login_id = request.args.get('login_as')
+    if login_id:
+        return users.get(int(login_id))
     return None
+
 
 
 @app.before_request
