@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ Flask webapp """
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
 from flask_babel import Babel
 
 users = {
@@ -34,8 +34,8 @@ def get_user():
 @app.before_request
 def before_request():
     """Set user in global g"""
-    user_id = request.args.get("login_as")
-    g.user = get_user(user_id) if user_id else None
+    user_id = get_user()
+    g.user_id = user_id
 
 
 @babel.localeselector
