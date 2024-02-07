@@ -27,7 +27,7 @@ users = {
 
 
 @app.route("/")
-def index_6()-> str:
+def index_6() -> str:
     """The index function displays the home pagen """
     return render_template("6-index.html")
 
@@ -61,6 +61,7 @@ def before_request() -> None:
     """Function to be executed before every request."""
     user = get_user()
     g.user = user
+
 
 app.before_request(before_request)
 
