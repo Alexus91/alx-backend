@@ -1,7 +1,7 @@
 # French translations for PROJECT.
 # Copyright (C) 2024 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+# FIRST AUTHOR <mrfadlkamal@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
@@ -23,7 +23,7 @@ msgstr ""
 msgid "home_title"
 msgstr "Bienvenue chez Holberton"
 
-#: templates/3-index.html:9 templates/4-index.html: templates/5-index.html:9
+#: templates/3-index.html:9 templates/4-index.html:9 templates/5-index.html:9
 #: templates/6-index.html:9
 msgid "home_header"
 msgstr "Bonjour monde!"
